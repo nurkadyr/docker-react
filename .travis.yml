@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t nurkadyr/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run nurkadyr/docker-react npm run test -- --coverage
